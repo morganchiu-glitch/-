@@ -1,243 +1,256 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>靈樞・元辰 | 慈光老師 - 新世代元辰宮權威</title>
-    <meta name="description" content="承襲瑤池金母正統法脈，慈光老師帶您深入靈魂居所，掃除事業障礙，補足財庫能量。">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>元辰宮與觀落陰探秘 | 慈光老師</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+  /* --- 1. 核心配色變數 (黑金風格) --- */
+  :root { 
+    --bg-dark: #121212;     /* 深黑色背景 */
+    --bg-card: #1E1E1E;     /* 卡片深灰色 */
+    --gold-dark: #D4AF37;   /* 鎏金 (標題、邊框) */
+    --gold-bright: #F9D77E; /* 亮黃 (按鈕、強調) */
+    --text-light: #F0F0F0;  /* 乳白色文字 */
+    --text-gray: #A0A0A0;   /* 灰色輔助文字 */
+  }
+  
+  /* --- 全域設定 --- */
+  body { 
+    margin:0; 
+    font-family: 'Noto Serif TC', serif; /* 改用宋體增加傳統感 */
+    background: var(--bg-dark); 
+    color: var(--text-light); 
+    line-height:1.6; 
+  }
+
+  /* --- 導航列 (黑底金字) --- */
+  .nav { 
+    background: rgba(18, 18, 18, 0.95); /* 深黑半透明 */
+    padding: 15px 20px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    position: sticky; top:0; z-index:99; 
+    border-bottom: 2px solid var(--gold-dark); /* 金邊 */
+    backdrop-filter: blur(10px);
+  }
+  .logo { font-size: 1.4rem; font-weight: 900; color: var(--gold-bright); letter-spacing: 1px; }
+  .nav-links { display: flex; gap: 20px; }
+  .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--gold-bright); }
+  .btn-book-nav { 
+    background: linear-gradient(45deg, var(--gold-dark), var(--gold-bright)); 
+    color: var(--bg-dark); 
+    font-weight:900; padding: 8px 18px; border-radius: 4px; text-decoration: none; font-size:0.9rem; border:none; 
+    box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3); 
+  }
+
+  /* --- 主視覺 Hero (重頭戲：廢墟背景) --- */
+  .hero { 
+    /* ⚠️ 請將這裡的網址替換為您上傳到 GitHub 的廢墟照片網址 */
+    background: linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1599939571322-792a32656957?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    padding: 120px 20px; /* 增加高度 */
+    text-align: left; /* 文字靠左 */
+    position: relative;
+    border-bottom: 3px solid var(--gold-dark);
+  }
+  
+  .hero-content { max-width: 900px; margin: 0 auto; }
+
+  .hero h1 { 
+    margin: 0 0 20px; 
+    font-size: 3.5rem; /* 超大標題 */
+    font-weight: 900;
+    color: var(--gold-bright); /* 亮金色 */
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+    line-height: 1.2;
+  }
+  .hero h1 span { display: block; font-size: 2.5rem; color: var(--gold-dark); }
+  
+  .hero p { 
+    color: var(--text-light); 
+    margin-bottom: 40px; 
+    font-size: 1.2rem; 
+    font-weight: 700; 
+    max-width: 600px; 
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+  }
+  
+  .hero-btns { display: flex; gap: 20px; }
+
+  /* 金色實心按鈕 */
+  .btn-gold { 
+    background: linear-gradient(to bottom, var(--gold-bright), var(--gold-dark)); 
+    color: var(--bg-dark); 
+    padding: 15px 40px; 
+    border-radius: 4px; /* 方形圓角 */
+    text-decoration: none; 
+    display: inline-block; 
+    font-weight: 900; 
+    font-size: 1.1rem;
+    border: 1px solid var(--gold-bright);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+  }
+  /* 金色邊框按鈕 */
+  .btn-outline-gold {
+    background: rgba(0,0,0,0.5);
+    color: var(--gold-bright);
+    padding: 15px 40px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 900;
+    font-size: 1.1rem;
+    border: 2px solid var(--gold-bright);
+    backdrop-filter: blur(5px);
+  }
+
+  /* --- 通用區塊標題 (參考圖樣式) --- */
+  .section-header {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+  }
+  .section-header h2 {
+    font-size: 2.2rem;
+    color: var(--gold-bright);
+    font-weight: 900;
+    display: inline-block;
+    position: relative;
+    padding: 0 20px;
+  }
+  /* 兩側裝飾線條 */
+  .section-header h2::before,
+  .section-header h2::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 80px;
+    height: 2px;
+    background: var(--gold-dark);
+  }
+  .section-header h2::before { left: -80px; }
+  .section-header h2::after { right: -80px; }
+
+  /* --- 區塊與卡片 (深色背景) --- */
+  .section { padding: 60px 20px; }
+  
+  /* 卡片通用樣式 */
+  .card-dark {
+    background: var(--bg-card);
+    border: 1px solid var(--gold-dark);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+  
+  /* 老師介紹卡片 */
+  .teacher-card { 
+    @extend .card-dark;
+    text-align: center; 
+    margin-top: -60px; /* 上浮效果 */
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(135deg, var(--bg-card), #2a2a2a);
+  }
+  .teacher-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 4px solid var(--gold-dark); box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+  
+  /* 服務卡片 */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+  .service-card { 
+    @extend .card-dark;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  .service-card:hover { transform: translateY(-10px); }
+  .service-card i { font-size: 2.5rem; color: var(--gold-bright); margin-bottom: 20px; }
+  .service-card h3 { margin: 0 0 15px; color: var(--gold-bright); font-size: 1.4rem; }
+  .service-card p { color: var(--text-gray); }
+  
+  /* 價格表 */
+  .price-card { 
+    @extend .card-dark;
+    text-align: center; 
+    position: relative; 
+  }
+  .price-card.hot { 
+    border: 2px solid var(--gold-bright); 
+    background: linear-gradient(180deg, #2a2a2a 0%, var(--bg-card) 100%);
+    transform: scale(1.05);
+    z-index: 2;
+  }
+  .badge { background: var(--gold-bright); color: var(--bg-dark); font-weight: 900; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); padding: 6px 20px; font-size: 0.9rem; border-radius: 20px; border: 2px solid var(--bg-dark); }
+  .price { font-size: 2.8rem; color: var(--gold-bright); font-weight: 900; margin: 20px 0; }
+  .price small { font-size: 1rem; color: var(--text-gray); font-weight: normal; }
+  .price-card ul { text-align: left; margin: 30px 0; padding-left: 20px; }
+  .price-card li { margin-bottom: 12px; color: var(--text-light); }
+  .price-card i { color: var(--gold-bright); margin-right: 10px; }
+  
+  /* 表單 */
+  .form-box { @extend .card-dark; max-width: 700px; margin: 0 auto; border-top: 5px solid var(--gold-bright); }
+  input, select, textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #444; border-radius: 4px; background: #2a2a2a; color: var(--text-light); font-size: 1rem; box-sizing: border-box; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--gold-bright); }
+  label { color: var(--gold-dark); font-weight: 700; margin-bottom: 8px; display: block; }
+
+  /* FAQ */
+  .faq { background: var(--bg-card); border: 1px solid #333; padding: 20px; margin-bottom: 15px; border-radius: 4px; cursor: pointer; transition: 0.3s; }
+  .faq.open { border-color: var(--gold-dark); background: #2a2a2a; }
+  .faq-q { display: flex; justify-content: space-between; font-weight: 700; color: var(--text-light); font-size: 1.1rem; }
+  .faq.open .faq-q { color: var(--gold-bright); }
+  .faq-a { display: none; color: var(--text-gray); margin-top: 15px; padding-top: 15px; border-top: 1px solid #444; line-height: 1.6; }
+  .faq.open .faq-a { display: block; }
+  
+  footer { text-align: center; padding: 50px 20px; background: #0a0a0a; color: var(--text-gray); margin-top: 60px; border-top: 1px solid #333; }
+  footer h3 { color: var(--gold-dark); font-size: 1.5rem; margin-bottom: 10px; }
+
+  /* RWD */
+  @media (max-width: 768px) {
+    .nav-links { display: none; } /* 手機版隱藏連結，簡化版面 */
+    .hero { padding: 80px 20px; text-align: center; }
+    .hero h1 { font-size: 2.5rem; }
+    .hero h1 span { font-size: 1.8rem; }
+    .hero-btns { flex-direction: column; }
+    .section-header h2::before, .section-header h2::after { display: none; } /* 手機版隱藏標題裝飾線 */
+    .price-card.hot { transform: scale(1); margin: 20px 0; }
+  }
+</style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="logo">靈樞・元辰</a>
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#about">關於老師</a></li>
-                <li><a href="#services">服務介紹</a></li>
-                <li><a href="#pricing">方案費用</a></li>
-                <li><a href="#faq">常見問題</a></li>
-                <li><a href="#contact" class="nav-btn">立即預約</a></li>
-            </ul>
-        </div>
-    </nav>
+<nav class="nav">
+  <div class="logo">元辰宮與觀落陰探秘</div>
+  <div class="nav-links">
+    <a href="#services">服務項目</a>
+    <a href="#pricing">方案費用</a>
+    <a href="#faq">常見問題</a>
+    <a href="#about">關於我們</a>
+  </div>
+  <a href="#booking" class="btn-book-nav">預約諮詢</a>
+</nav>
 
-    <header class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <h1>重塑靈魂格局<br>掌舵命運流年</h1>
-            <p class="hero-subtitle">新世代元辰宮權威 —— 慈光老師<br>拒絕宿命論。以行動派的魄力與慈悲，帶您找回生命的主導權。</p>
-            <div class="hero-btns">
-                <a href="#contact" class="btn btn-primary">預約慈光老師</a>
-                <a href="#services" class="btn btn-outline">認識元辰宮</a>
-            </div>
-        </div>
-    </header>
+<div class="hero">
+  <div class="hero-content">
+    <h1>
+      <span>元辰宮</span>
+      與觀落陰探秘
+    </h1>
+    <p>專業引導，探索心靈深處，重塑命運。<br>承襲正統法脈，以行動派魄力，為您開啟生命轉機。</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-gold">了解元辰宮服務</a>
+      <a href="#booking" class="btn-outline-gold">預約觀落陰儀式</a>
+    </div>
+  </div>
+</div>
 
-    <section id="about" class="section">
-        <div class="container about-grid">
-            <div class="about-img">
-                <img src="https://placehold.co/500x600/003153/FF8C42?text=慈光老師照片\n(請替換)" alt="慈光老師">
-            </div>
-            <div class="about-text">
-                <h2 class="section-title">新世代的靈魂導航者</h2>
-                <h3>慈光老師</h3>
-                <p class="lead">「打破傳統框架，注入轉運能量。以瑤池金母智慧，高效解決現代人生難題。」</p>
-                <p>慈光老師是一位「入世」的修行者，40歲正值壯年，留著俐落的小平頭，眼神堅毅。他深知現代人在職場與生活中的壓力，因此不講空泛的大道理，只看問題的根源與解決辦法。</p>
-                <ul class="feature-list">
-                    <li><i class="fa-solid fa-bolt"></i> <strong>行動派導師：</strong>不只預測，更重解決，提供高效改善方案。</li>
-                    <li><i class="fa-solid fa-star"></i> <strong>正統傳承：</strong>師承瑤池金母法脈，過程安全嚴謹。</li>
-                    <li><i class="fa-solid fa-user-shield"></i> <strong>隱私保障：</strong>一對一引導，絕對保密。</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="section bg-light">
-        <div class="container">
-            <h2 class="section-title center">元辰宮核心調整</h2>
-            <p class="section-desc center">我們將深入您靈魂的居所，針對四大核心區域進行檢視與修繕。</p>
-            
-            <div class="service-grid">
-                <div class="service-card">
-                    <div class="icon-box"><i class="fa-solid fa-couch"></i></div>
-                    <h3>大廳 (事業運)</h3>
-                    <p>象徵對外的人際關係與前途。掃除灰塵、撥亮元辰燈，提升職場貴人運與判斷力。</p>
-                </div>
-                <div class="service-card">
-                    <div class="icon-box"><i class="fa-solid fa-fire-burner"></i></div>
-                    <h3>廚房 (財庫)</h3>
-                    <p>食祿即財祿。補滿米缸水缸，調整灶火大小，助您守住財富，減少意外破財。</p>
-                </div>
-                <div class="service-card">
-                    <div class="icon-box"><i class="fa-solid fa-bed"></i></div>
-                    <h3>臥房 (感情)</h3>
-                    <p>反映私密情感狀態。斬斷爛桃花，修復夫妻裂痕，單身者可整理臥房招來正緣。</p>
-                </div>
-                <div class="service-card">
-                    <div class="icon-box"><i class="fa-solid fa-tree"></i></div>
-                    <h3>花園 (健康)</h3>
-                    <p>種植著代表您的生命樹/花。澆水施肥除蟲，能改善身體小毛病，提升精氣神。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="pricing" class="section">
-        <div class="container">
-            <h2 class="section-title center">服務方案</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>基礎體驗</h3>
-                    <p class="subtitle">重點財運修復</p>
-                    <div class="price">$3,600 <span class="period">/ 次</span></div>
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> 遠端代觀 / 現場引導</li>
-                        <li><i class="fa-solid fa-check"></i> <strong>大廳：</strong>事業運清理</li>
-                        <li><i class="fa-solid fa-check"></i> <strong>廚房：</strong>補財庫、調灶火</li>
-                        <li class="disabled"><i class="fa-solid fa-xmark"></i> 臥房與花園調整</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline full-width">預約基礎修復</a>
-                </div>
-
-                <div class="pricing-card popular">
-                    <div class="badge">熱門首選</div>
-                    <h3>全方位重塑</h3>
-                    <p class="subtitle">元辰宮完整大掃除</p>
-                    <div class="price">$6,800 <span class="period">/ 次</span></div>
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> <strong>慈光老師親自引導</strong></li>
-                        <li><i class="fa-solid fa-check"></i> <strong>四大區域全開</strong> (廳/廚/房/園)</li>
-                        <li><i class="fa-solid fa-check"></i> 冤親債主現場協調化解</li>
-                        <li><i class="fa-solid fa-check"></i> 完整諮詢錄音 + 建議卡</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary full-width">預約全方位重塑</a>
-                </div>
-
-                <div class="pricing-card">
-                    <h3>尊榮獨家</h3>
-                    <p class="subtitle">靈魂藍圖顧問</p>
-                    <div class="price">$12,000 <span class="period">/ 次</span></div>
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> <strong>包含全方位重塑所有內容</strong></li>
-                        <li><i class="fa-solid fa-check"></i> 觀落陰探親 / 查生死簿</li>
-                        <li><i class="fa-solid fa-check"></i> 官運/事業特殊法器佈局</li>
-                        <li><i class="fa-solid fa-check"></i> 術後 30 天追蹤諮詢一次</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline full-width">諮詢尊榮方案</a>
-                </div>
-            </div>
-            <p class="pricing-note center">* 費用為引導與調整費。若需特殊大量金紙或法會化解，費用另計。</p>
-        </div>
-    </section>
-
-    <section id="faq" class="section bg-light">
-        <div class="container">
-            <h2 class="section-title center">常見問題</h2>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">Q1：元辰宮會不會很危險？靈魂會不會回不來？ <i class="fa-solid fa-chevron-down"></i></div>
-                    <div class="faq-answer">絕對安全。這是一種深度的潛意識探索狀態，全程保有清晰意識。加上老師承襲正法，設有結界護持，絕無風險。</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Q2：我看不到怎麼辦？ <i class="fa-solid fa-chevron-down"></i></div>
-                    <div class="faq-answer">別擔心。若因體質無法親看，老師提供「代觀服務」。由老師親自進入幫您檢視修補，效果與親看完全一致。</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Q3：可以線上遠端處理嗎？ <i class="fa-solid fa-chevron-down"></i></div>
-                    <div class="faq-answer">可以，能量不受距離限制。我們擁有大量海外客戶案例，透過視訊通話即可進行，效果相同。</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Q4：多久需要調整一次？ <i class="fa-solid fa-chevron-down"></i></div>
-                    <div class="faq-answer">建議每 3 到 6 個月一次。就像家裡需要定期大掃除，定期「靈魂健檢」能確保運勢維持在最佳狀態。</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section">
-        <div class="container contact-container">
-            <h2 class="section-title center">立即預約諮詢</h2>
-            <p class="section-desc center">填寫下方資料，讓我們為您安排轉運的第一步。<br>個資僅供法事科儀使用，絕對保密。</p>
-            
-            <form id="bookingForm" class="booking-form">
-                <div class="form-group">
-                    <label>真實姓名</label>
-                    <input type="text" placeholder="身分證本名 (稟奏疏文用)" required>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>性別</label>
-                        <select required>
-                            <option value="">請選擇</option>
-                            <option value="male">男</option>
-                            <option value="female">女</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>居住地區</label>
-                        <input type="text" placeholder="例如：台北市、美國" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>出生日期 (請註明國曆/農曆)</label>
-                    <div class="date-input-group">
-                        <input type="date" required>
-                        <select class="small-select">
-                            <option>國曆</option>
-                            <option>農曆</option>
-                        </select>
-                        <input type="text" placeholder="時辰 (選填)" class="small-input">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>預約方案</label>
-                    <select required>
-                        <option value="">請選擇方案</option>
-                        <option value="A">【方案 A】基礎體驗 $3,600</option>
-                        <option value="B">【方案 B】全方位重塑 (熱門) $6,800</option>
-                        <option value="C">【方案 C】尊榮靈魂顧問 $12,000</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>目前最想解決的一個障礙？</label>
-                    <textarea rows="4" placeholder="請具體描述，例如：跟先生冷戰、公司裁員、一直存不到錢..." required></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary full-width">立即預約，啟動轉運能量</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container center">
-            <h3>靈樞・元辰</h3>
-            <p>慈光老師 — 您的靈魂導航者</p>
-            <div class="social-links">
-                <a href="#"><i class="fa-brands fa-line"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            </div>
-            <p class="copyright">&copy; 2025 Soul Pivot. All Rights Reserved. <br><small>本服務為民俗信仰與心靈諮詢，效果因人而異。</small></p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<section class="section" id="about">
+  <div class="teacher-card card-dark">
+    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300" class="teacher-img" alt="慈光老師">
+    <h2 style="color:var(--gold-bright); margin:10px 0;">慈光老師</h2>
+    <h3 style="color:var(--gold-dark); font-size:1.1rem; margin-bottom:20px;">新世代靈魂導航者．瑤池金母傳承</h3>
+    <p style="color:var
