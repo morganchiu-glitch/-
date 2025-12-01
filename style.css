@@ -1,0 +1,338 @@
+/* --- 變數設定 (配色方案) --- */
+:root {
+    --primary: #003153;    /* 普魯士藍：專業、權威 */
+    --secondary: #FF8C42;  /* 晨曦橘：活力、光 */
+    --accent: #D4AF37;     /* 香檳金：點綴 */
+    --bg-light: #F5F5F7;   /* 雲峰白：背景 */
+    --text-dark: #1A1A1A;
+    --text-gray: #666;
+    --white: #ffffff;
+}
+
+/* --- 全域設定 --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--white);
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Noto Serif TC', serif;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section { padding: 80px 0; }
+.bg-light { background-color: var(--bg-light); }
+.center { text-align: center; }
+
+/* --- 按鈕樣式 --- */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: 0.3s;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--secondary);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: #e67e3a;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 2px solid var(--white);
+    color: var(--white);
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: var(--white);
+    color: var(--primary);
+}
+
+.full-width {
+    width: 100%;
+    text-align: center;
+}
+
+/* --- 導航列 --- */
+.navbar {
+    background: var(--primary);
+    color: var(--white);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--secondary);
+}
+
+.nav-menu { display: flex; gap: 30px; align-items: center; }
+.nav-menu a:hover { color: var(--secondary); }
+
+.nav-btn {
+    background: var(--secondary);
+    padding: 8px 20px;
+    border-radius: 4px;
+    color: var(--white) !important;
+}
+
+/* 手機漢堡選單 */
+.menu-toggle { display: none; cursor: pointer; }
+.bar { display: block; width: 25px; height: 3px; background: var(--white); margin: 5px auto; }
+
+/* --- Hero Section --- */
+.hero {
+    height: 90vh;
+    background-image: url('https://images.unsplash.com/photo-1518050226102-14352528b94c?q=80&w=1920&auto=format&fit=crop'); /* 暫用素材圖：象徵廢墟或神秘感 */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to right, rgba(0,49,83,0.9), rgba(0,49,83,0.5));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+}
+
+.hero h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2; color: var(--secondary); }
+.hero-subtitle { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
+.hero-btns { display: flex; gap: 20px; }
+
+/* --- 關於老師 --- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-img img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 20px 20px 0 var(--secondary);
+}
+
+.section-title {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.about-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--secondary);
+}
+
+.feature-list { margin-top: 30px; }
+.feature-list li { margin-bottom: 15px; font-size: 1.1rem; }
+.feature-list i { color: var(--secondary); margin-right: 10px; }
+
+/* --- 服務介紹 --- */
+.section-desc { max-width: 700px; margin: 0 auto 50px; color: var(--text-gray); }
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    text-align: center;
+}
+
+.service-card:hover { transform: translateY(-10px); }
+
+.icon-box {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin-bottom: 20px;
+}
+
+.service-card h3 { color: var(--primary); margin-bottom: 15px; }
+
+/* --- 價格表 --- */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.pricing-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    position: relative;
+}
+
+.pricing-card.popular {
+    border: 2px solid var(--secondary);
+    box-shadow: 0 10px 30px rgba(255, 140, 66, 0.2);
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.badge {
+    position: absolute;
+    top: -15px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--secondary);
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.price {
+    font-size: 2.5rem;
+    color: var(--primary);
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.price .period { font-size: 1rem; color: var(--text-gray); font-weight: normal; }
+
+.pricing-card ul { margin-bottom: 30px; text-align: left; }
+.pricing-card li { margin-bottom: 12px; }
+.pricing-card i { color: var(--secondary); margin-right: 10px; }
+.pricing-card .disabled { color: #ccc; }
+.pricing-card .disabled i { color: #ccc; }
+
+.pricing-card .btn-outline { color: var(--primary); border-color: var(--primary); }
+.pricing-card .btn-outline:hover { background: var(--primary); color: var(--white); }
+
+.pricing-note { font-size: 0.9rem; color: var(--text-gray); }
+
+/* --- FAQ --- */
+.faq-container { max-width: 800px; margin: 0 auto; }
+.faq-item { margin-bottom: 15px; background: var(--white); border-radius: 5px; overflow: hidden; }
+.faq-question {
+    padding: 20px;
+    background: var(--white);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    color: var(--primary);
+}
+.faq-answer {
+    padding: 0 20px 20px;
+    display: none;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+.faq-item.active .faq-answer { display: block; }
+.faq-item.active .fa-chevron-down { transform: rotate(180deg); transition: 0.3s; }
+
+/* --- 預約表單 --- */
+.booking-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+}
+
+.form-group { margin-bottom: 20px; }
+.form-row { display: flex; gap: 20px; }
+.form-row .form-group { flex: 1; }
+
+label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--primary); }
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.date-input-group { display: flex; gap: 10px; }
+.small-select { width: 80px; }
+.small-input { width: 120px; }
+
+/* --- 頁尾 --- */
+footer { background: var(--primary); color: var(--white); padding: 50px 0; }
+.social-links { margin: 20px 0; }
+.social-links a { font-size: 1.5rem; margin: 0 15px; color: var(--secondary); transition: 0.3s; }
+.social-links a:hover { color: var(--white); }
+.copyright { color: #88a; font-size: 0.9rem; }
+
+/* --- RWD 響應式微調 --- */
+@media (max-width: 768px) {
+    .menu-toggle { display: block; }
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; left: 0; width: 100%;
+        background: var(--primary);
+        text-align: center;
+        padding: 20px 0;
+    }
+    .nav-menu.active { display: flex; }
+    .hero h1 { font-size: 2.5rem; }
+    .about-grid { grid-template-columns: 1fr; }
+    .pricing-card.popular { transform: scale(1); }
+    .form-row { flex-direction: column; }
+}
