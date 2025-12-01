@@ -1,52 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. 手機版選單切換
-    const menuToggle = document.getElementById('mobile-menu');
-    const navMenu = document.querySelector('.nav-menu');
-
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
-
-    // 2. 點擊選單連結後自動收起
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-        });
-    });
-
-    // 3. FAQ 手風琴效果
-    const faqQuestions = document.querySelectorAll('.faq-question');
-
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', () => {
-            const item = question.parentElement;
-            item.classList.toggle('active');
-        });
-    });
-
-    // 4. 表單送出處理 (這裡模擬送出)
-    const bookingForm = document.getElementById('bookingForm');
-
-    bookingForm.addEventListener('submit', (e) => {
-        e.preventDefault(); // 防止頁面刷新
-        
-        // 抓取一些資料來顯示感謝訊息 (模擬)
-        const name = bookingForm.querySelector('input[type="text"]').value;
-        
-        // 實際應用時，這裡通常會串接後端 API 或 Email 服務 (如 Formspree)
-        alert(`感謝您，${name}！\n\n慈光老師已收到您的預約申請。\n助理將會在 24 小時內與您聯繫安排時間。`);
-        
-        bookingForm.reset();
-    });
+    // 1. FAQ 手風琴效果 (點擊展開/收合)
+    const faqs = document.querySelectorAll('.faq');
     
-    // 5. 平滑捲動 (相容舊瀏覽器)
+    faqs.forEach(faq => {
+        faq.addEventListener('click', () => {
+            // 如果希望一次只展開一個，請取消下面這行的註解：
+            // document.querySelector('.faq.open')?.classList.remove('open');
+            faq.classList.toggle('open');
+            
+            // 旋轉箭頭圖示
+            const icon = faq.querySelector('.fa-chevron-down');
+            if(icon) {
+                if (faq.classList.contains('open')) {
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+                icon.style.transition = '0.3s';
+            }
+        });
+    });
+
+    // 2. 表單送出模擬
+    const bookingForm = document.querySelector('form');
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // 防止頁面重新整理
+            
+            // 可以在這裡加入抓取表單資料的邏輯
+            
+            alert('【系統通知】\n\n感謝您的預約！\n慈光老師助理會盡快與您聯繫安排時間。');
+            bookingForm.reset(); // 清空表單
+        });
+    }
+
+    // 3. 平滑捲動 (Smooth Scroll)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 });
