@@ -1,256 +1,28 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>元辰宮與觀落陰探秘 | 慈光老師</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&display=swap" rel="stylesheet">
-
-<style>
-  /* --- 1. 核心配色變數 (黑金風格) --- */
-  :root { 
-    --bg-dark: #121212;     /* 深黑色背景 */
-    --bg-card: #1E1E1E;     /* 卡片深灰色 */
-    --gold-dark: #D4AF37;   /* 鎏金 (標題、邊框) */
-    --gold-bright: #F9D77E; /* 亮黃 (按鈕、強調) */
-    --text-light: #F0F0F0;  /* 乳白色文字 */
-    --text-gray: #A0A0A0;   /* 灰色輔助文字 */
-  }
-  
-  /* --- 全域設定 --- */
-  body { 
-    margin:0; 
-    font-family: 'Noto Serif TC', serif; /* 改用宋體增加傳統感 */
-    background: var(--bg-dark); 
-    color: var(--text-light); 
-    line-height:1.6; 
-  }
-
-  /* --- 導航列 (黑底金字) --- */
-  .nav { 
-    background: rgba(18, 18, 18, 0.95); /* 深黑半透明 */
-    padding: 15px 20px; 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    position: sticky; top:0; z-index:99; 
-    border-bottom: 2px solid var(--gold-dark); /* 金邊 */
-    backdrop-filter: blur(10px);
-  }
-  .logo { font-size: 1.4rem; font-weight: 900; color: var(--gold-bright); letter-spacing: 1px; }
-  .nav-links { display: flex; gap: 20px; }
-  .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: color 0.3s; }
-  .nav-links a:hover { color: var(--gold-bright); }
-  .btn-book-nav { 
-    background: linear-gradient(45deg, var(--gold-dark), var(--gold-bright)); 
-    color: var(--bg-dark); 
-    font-weight:900; padding: 8px 18px; border-radius: 4px; text-decoration: none; font-size:0.9rem; border:none; 
-    box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3); 
-  }
-
-  /* --- 主視覺 Hero (重頭戲：廢墟背景) --- */
-  .hero { 
-    /* ⚠️ 請將這裡的網址替換為您上傳到 GitHub 的廢墟照片網址 */
-    background: linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1599939571322-792a32656957?q=80&w=1920&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
-    padding: 120px 20px; /* 增加高度 */
-    text-align: left; /* 文字靠左 */
-    position: relative;
-    border-bottom: 3px solid var(--gold-dark);
-  }
-  
-  .hero-content { max-width: 900px; margin: 0 auto; }
-
-  .hero h1 { 
-    margin: 0 0 20px; 
-    font-size: 3.5rem; /* 超大標題 */
-    font-weight: 900;
-    color: var(--gold-bright); /* 亮金色 */
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-    line-height: 1.2;
-  }
-  .hero h1 span { display: block; font-size: 2.5rem; color: var(--gold-dark); }
-  
-  .hero p { 
-    color: var(--text-light); 
-    margin-bottom: 40px; 
-    font-size: 1.2rem; 
-    font-weight: 700; 
-    max-width: 600px; 
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
-  }
-  
-  .hero-btns { display: flex; gap: 20px; }
-
-  /* 金色實心按鈕 */
-  .btn-gold { 
-    background: linear-gradient(to bottom, var(--gold-bright), var(--gold-dark)); 
-    color: var(--bg-dark); 
-    padding: 15px 40px; 
-    border-radius: 4px; /* 方形圓角 */
-    text-decoration: none; 
-    display: inline-block; 
-    font-weight: 900; 
-    font-size: 1.1rem;
-    border: 1px solid var(--gold-bright);
-    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
-  }
-  /* 金色邊框按鈕 */
-  .btn-outline-gold {
-    background: rgba(0,0,0,0.5);
-    color: var(--gold-bright);
-    padding: 15px 40px;
-    border-radius: 4px;
-    text-decoration: none;
-    display: inline-block;
-    font-weight: 900;
-    font-size: 1.1rem;
-    border: 2px solid var(--gold-bright);
-    backdrop-filter: blur(5px);
-  }
-
-  /* --- 通用區塊標題 (參考圖樣式) --- */
-  .section-header {
-    text-align: center;
-    margin-bottom: 50px;
-    position: relative;
-  }
-  .section-header h2 {
-    font-size: 2.2rem;
-    color: var(--gold-bright);
-    font-weight: 900;
-    display: inline-block;
-    position: relative;
-    padding: 0 20px;
-  }
-  /* 兩側裝飾線條 */
-  .section-header h2::before,
-  .section-header h2::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 80px;
-    height: 2px;
-    background: var(--gold-dark);
-  }
-  .section-header h2::before { left: -80px; }
-  .section-header h2::after { right: -80px; }
-
-  /* --- 區塊與卡片 (深色背景) --- */
-  .section { padding: 60px 20px; }
-  
-  /* 卡片通用樣式 */
-  .card-dark {
-    background: var(--bg-card);
-    border: 1px solid var(--gold-dark);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  }
-  
-  /* 老師介紹卡片 */
-  .teacher-card { 
-    @extend .card-dark;
-    text-align: center; 
-    margin-top: -60px; /* 上浮效果 */
-    position: relative;
-    z-index: 2;
-    background: linear-gradient(135deg, var(--bg-card), #2a2a2a);
-  }
-  .teacher-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 4px solid var(--gold-dark); box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
-  
-  /* 服務卡片 */
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-  .service-card { 
-    @extend .card-dark;
-    text-align: center;
-    transition: transform 0.3s;
-  }
-  .service-card:hover { transform: translateY(-10px); }
-  .service-card i { font-size: 2.5rem; color: var(--gold-bright); margin-bottom: 20px; }
-  .service-card h3 { margin: 0 0 15px; color: var(--gold-bright); font-size: 1.4rem; }
-  .service-card p { color: var(--text-gray); }
-  
-  /* 價格表 */
-  .price-card { 
-    @extend .card-dark;
-    text-align: center; 
-    position: relative; 
-  }
-  .price-card.hot { 
-    border: 2px solid var(--gold-bright); 
-    background: linear-gradient(180deg, #2a2a2a 0%, var(--bg-card) 100%);
-    transform: scale(1.05);
-    z-index: 2;
-  }
-  .badge { background: var(--gold-bright); color: var(--bg-dark); font-weight: 900; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); padding: 6px 20px; font-size: 0.9rem; border-radius: 20px; border: 2px solid var(--bg-dark); }
-  .price { font-size: 2.8rem; color: var(--gold-bright); font-weight: 900; margin: 20px 0; }
-  .price small { font-size: 1rem; color: var(--text-gray); font-weight: normal; }
-  .price-card ul { text-align: left; margin: 30px 0; padding-left: 20px; }
-  .price-card li { margin-bottom: 12px; color: var(--text-light); }
-  .price-card i { color: var(--gold-bright); margin-right: 10px; }
-  
-  /* 表單 */
-  .form-box { @extend .card-dark; max-width: 700px; margin: 0 auto; border-top: 5px solid var(--gold-bright); }
-  input, select, textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #444; border-radius: 4px; background: #2a2a2a; color: var(--text-light); font-size: 1rem; box-sizing: border-box; }
-  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--gold-bright); }
-  label { color: var(--gold-dark); font-weight: 700; margin-bottom: 8px; display: block; }
-
-  /* FAQ */
-  .faq { background: var(--bg-card); border: 1px solid #333; padding: 20px; margin-bottom: 15px; border-radius: 4px; cursor: pointer; transition: 0.3s; }
-  .faq.open { border-color: var(--gold-dark); background: #2a2a2a; }
-  .faq-q { display: flex; justify-content: space-between; font-weight: 700; color: var(--text-light); font-size: 1.1rem; }
-  .faq.open .faq-q { color: var(--gold-bright); }
-  .faq-a { display: none; color: var(--text-gray); margin-top: 15px; padding-top: 15px; border-top: 1px solid #444; line-height: 1.6; }
-  .faq.open .faq-a { display: block; }
-  
-  footer { text-align: center; padding: 50px 20px; background: #0a0a0a; color: var(--text-gray); margin-top: 60px; border-top: 1px solid #333; }
-  footer h3 { color: var(--gold-dark); font-size: 1.5rem; margin-bottom: 10px; }
-
-  /* RWD */
-  @media (max-width: 768px) {
-    .nav-links { display: none; } /* 手機版隱藏連結，簡化版面 */
-    .hero { padding: 80px 20px; text-align: center; }
-    .hero h1 { font-size: 2.5rem; }
-    .hero h1 span { font-size: 1.8rem; }
-    .hero-btns { flex-direction: column; }
-    .section-header h2::before, .section-header h2::after { display: none; } /* 手機版隱藏標題裝飾線 */
-    .price-card.hot { transform: scale(1); margin: 20px 0; }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元辰宮與觀落陰探秘 | 慈光老師</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav class="nav">
-  <div class="logo">元辰宮與觀落陰探秘</div>
-  <div class="nav-links">
-    <a href="#services">服務項目</a>
-    <a href="#pricing">方案費用</a>
-    <a href="#faq">常見問題</a>
-    <a href="#about">關於我們</a>
-  </div>
-  <a href="#booking" class="btn-book-nav">預約諮詢</a>
-</nav>
+    <nav class="nav">
+        <div class="logo">元辰宮與觀落陰探秘</div>
+        <div class="nav-links">
+            <a href="#services">服務項目</a>
+            <a href="#pricing">方案費用</a>
+            <a href="#faq">常見問題</a>
+            <a href="#about">關於我們</a>
+        </div>
+        <a href="#booking" class="btn-book-nav">預約諮詢</a>
+    </nav>
 
-<div class="hero">
-  <div class="hero-content">
-    <h1>
-      <span>元辰宮</span>
-      與觀落陰探秘
-    </h1>
-    <p>專業引導，探索心靈深處，重塑命運。<br>承襲正統法脈，以行動派魄力，為您開啟生命轉機。</p>
-    <div class="hero-btns">
-      <a href="#services" class="btn-gold">了解元辰宮服務</a>
-      <a href="#booking" class="btn-outline-gold">預約觀落陰儀式</a>
-    </div>
-  </div>
-</div>
-
-<section class="section" id="about">
-  <div class="teacher-card card-dark">
-    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300" class="teacher-img" alt="慈光老師">
-    <h2 style="color:var(--gold-bright); margin:10px 0;">慈光老師</h2>
-    <h3 style="color:var(--gold-dark); font-size:1.1rem; margin-bottom:20px;">新世代靈魂導航者．瑤池金母傳承</h3>
-    <p style="color:var
+    <script src="script.js"></script>
+</body>
+</html>
